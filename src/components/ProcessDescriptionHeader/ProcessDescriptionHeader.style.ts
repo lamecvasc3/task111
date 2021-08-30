@@ -1,11 +1,10 @@
 import { makeStyles } from "@material-ui/core";
-import { textColors } from "_config/theme"
+import { textColors } from "_config/theme";
 
 export const useStyles = makeStyles({
   title: {
     fontWeight: 700,
     fontSize: 20,
-
     "& + #pd-subtitle": {
       marginTop: 24,
     },
@@ -27,6 +26,5 @@ export const useStyles = makeStyles({
     fontWeight: 300,
     fontSize: 12,
     lineHeight: "15.6px",
-    width: "75vw",
   },
 });

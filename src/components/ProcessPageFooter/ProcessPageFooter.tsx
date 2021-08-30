@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { Box } from "@material-ui/core";
 import { KeyboardArrowLeft } from "@material-ui/icons";
 import { Button } from "components/Button";
@@ -13,8 +14,9 @@ export const ProcessPageFooter: React.FC<ProcessPageFooterProps> = ({
   primaryButton,
 }) => {
   const styles = useStyles();
+  const history = useHistory();
 
-  const onPreviousButtonClick = () => console.log("Voltar");
+  const onPreviousButtonClick = () => history.goBack();
 
   return (
     <Box className={styles.buttonsWrapper}>

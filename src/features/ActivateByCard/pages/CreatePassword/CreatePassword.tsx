@@ -1,28 +1,27 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container, Box } from "@material-ui/core";
 import { KeyboardArrowRight } from "@material-ui/icons";
 import { CloseButton } from "features/ActivateByCard/components/CloseButton";
 import { ProcessDescriptionHeader } from "components/ProcessDescriptionHeader";
-import { ProcessPageFooter } from "components/ProcessPageFooter";
 import { AppBar } from "components/AppBar";
 import { Button } from "components/Button";
+import { ProcessPageFooter } from "components/ProcessPageFooter";
 import { PasswordInput } from "features/ActivateByCard/components/inputs/PasswordInput";
 import { cancelLabel, nextLabel } from "constants/buttons/labels";
 
-import { useStyle } from "_assets/makeStyles/container/container.style";
+import { useStyles } from "./CreatePassword.style";
 import "_assets/css/forms/mainform.scss"
 
 export const CreatePassword: React.FC = () => {
-  const style = useStyle();
-
+  const style = useStyles();
+  const homeRoute = "/"
 
   const [passwordInput, setPasswordInput] = React.useState("");
 
   const onPasswordChange = (event: string) => {
     setPasswordInput(event)
   }
-    
-
+  
   const onCancelButtonClick = () => {
     console.log("cancelar")
   };
@@ -34,28 +33,31 @@ export const CreatePassword: React.FC = () => {
   return (
     <Container maxWidth="xs" className={style.container}>
       <div className="main-form">
-        <AppBar
-          action={
-            <Button
-              palette="secondary"
-              size="small"
-              startIcon={<CloseButton />}
-              onClick={onCancelButtonClick}
-            >
-              {cancelLabel}
-            </Button>
-          }
-        />
+          <AppBar
+            homeRoute={homeRoute}
+            action={
+              <Button
+                palette="secondary"
+                size="small"
+                startIcon={<CloseButton />}
+                onClick={onCancelButtonClick}
+              >
+                {cancelLabel}
+              </Button>
+            }
+          />
         <div className="form-body">
           <div className="top">
-            <ProcessDescriptionHeader
-              title="Ative sua conta"
-              subtitle="Crie uma senha para sua conta"
-              description="Essa senha deve ter 6 dígitos e deve ter ao menos uma letra"
-            />
+            <Box className={style.header}>
+              <ProcessDescriptionHeader
+                title="Ative sua Conta"
+                subtitle={"Crie uma senha para sua conta"}
+                description="Essa senha deve ter 6 dígitos e deve ter ao menos uma letra"
+              />
+            </Box>
           </div>
           <div className="content">
-            <div className="align-top">
+            <div className={`align-top ${style.passwordContent}`}>
               <PasswordInput
                 label="Senha"
                 onChange={onPasswordChange}
@@ -64,16 +66,18 @@ export const CreatePassword: React.FC = () => {
             </div>
           </div>
         </div>
-        <ProcessPageFooter
-          primaryButton={
-            <Button
-              endIcon={<KeyboardArrowRight color="secondary" />}
-              onClick={onNextButtonClick}
-            >
-              {nextLabel}
-            </Button>
-          }
-        />
+        <Box className={style.footer}>
+          <ProcessPageFooter
+            primaryButton={
+              <Button
+                endIcon={<KeyboardArrowRight color="secondary" />}
+                onClick={onNextButtonClick}
+              >
+                {nextLabel}
+              </Button>
+            }
+          />
+        </Box>
       </div>
     </Container>
   );

@@ -1,11 +1,13 @@
 import { makeStyles } from "@material-ui/core";
-import { theme } from "_config/theme"
+import { theme } from "_config/theme";
 
-const toolbarHeight = "8.5vh";
+const toolbarHeight = 48;
 
 export const useStyles = makeStyles({
+  appheader: {
+    boxShadow: "none",
+  },
   toolbar: {
-    minHeight: "48px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -20,10 +22,12 @@ export const useStyles = makeStyles({
   },
   logo: {
     height: "100%",
-    width: "80px",
     borderRadius: "0px",
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
+    "& img": {
+      height: 24,
+    },
   },
 });
