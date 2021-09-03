@@ -1,0 +1,1 @@
+export { TermsMain } from "./TermsMain";

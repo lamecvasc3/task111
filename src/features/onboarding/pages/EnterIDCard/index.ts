@@ -1,0 +1,1 @@
+export { EnterIDCard } from './EnterIDCard';

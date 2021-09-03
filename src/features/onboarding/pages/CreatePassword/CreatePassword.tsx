@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Box } from "@material-ui/core";
 import { KeyboardArrowRight } from "@material-ui/icons";
-import { CloseButton } from "features/ActivateByCard/components/CloseButton";
+import { CloseButton } from "features/onboarding/components/CloseButton";
 import { ProcessDescriptionHeader } from "components/ProcessDescriptionHeader";
 import { AppBar } from "components/AppBar";
 import { Button } from "components/Button";
 import { ProcessPageFooter } from "components/ProcessPageFooter";
-import { PasswordInput } from "features/ActivateByCard/components/inputs/PasswordInput";
+import { PasswordInput } from "features/onboarding/components/inputs/PasswordInput";
 import { cancelLabel, nextLabel } from "constants/buttons/labels";
 
 import { useStyles } from "./CreatePassword.style";
@@ -50,7 +50,7 @@ export const CreatePassword: React.FC = () => {
           <div className="top">
             <Box className={style.header}>
               <ProcessDescriptionHeader
-                title="Ative sua Conta"
+                title="Ative sua conta"
                 subtitle={"Crie uma senha para sua conta"}
                 description="Essa senha deve ter 6 dígitos e deve ter ao menos uma letra"
               />

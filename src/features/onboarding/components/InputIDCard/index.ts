@@ -1,0 +1,1 @@
+export { InputIDCard } from './InputIDCard'
